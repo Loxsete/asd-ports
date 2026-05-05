@@ -6,7 +6,7 @@ BUILD="/tmp/asd/build/$PKG_NAME"
 mkdir -p "$BUILD"
 cd "$BUILD"
 
-curl -L "https://zlib.net/zlib-${PKG_VERSION}.tar.gz" -o src.tar.gz
+curl -L "https://github.com/libffi/libffi/releases/download/v${PKG_VERSION}/libffi-${PKG_VERSION}.tar.gz" -o src.tar.gz
 tar -xf src.tar.gz --strip-components=1
 
 ./configure --prefix="$ASD_PREFIX"

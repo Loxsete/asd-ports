@@ -1,14 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
-VERSION="5.4.7"
-BUILD="/tmp/asd/build/lua"
+
+BUILD="/tmp/asd/build/$PKG_NAME"
+
 mkdir -p "$BUILD"
-
-curl -L "https://www.lua.org/ftp/lua-${VERSION}.tar.gz" 
--o "$BUILD/src.tar.gz"
-  tar -xzf "BUILD/src.tar.gz"−C"BUILD/src.tar.gz" -C "
-BUILD/src.tar.gz"−C"BUILD" --strip-components=1
-
 cd "$BUILD"
-make -j"$(nproc)" INSTALL_TOP=/usr linux
-make INSTALL_TOP=/usr install
+
+curl -L "https://www.lua.org/ftp/lua-${PKG_VERSION}.tar.gz" -o src.tar.gz
+tar -xf src.tar.gz --strip-components=1
+
+make -j"$ASD_JOBS" linux
+make INSTALL_TOP="$ASD_PREFIX" install
