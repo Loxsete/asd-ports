@@ -6,7 +6,7 @@ BUILD="/tmp/asd/build/$PKG_NAME"
 mkdir -p "$BUILD"
 cd "$BUILD"
 
-curl -L "https://github.com/curl/curl/releases/download/curl-${PKG_VERSION}/curl-${PKG_VERSION}.tar.gz" -o src.tar.gz
+curl -L "https://curl.se{PKG_VERSION}.tar.gz" -o src.tar.gz
 tar -xf src.tar.gz --strip-components=1
 
 ./configure \
